@@ -1,19 +1,5 @@
 package com.smfssilva.cursomc.services;
 
-import java.net.URI;
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.smfssilva.cursomc.domain.Cidade;
 import com.smfssilva.cursomc.domain.Cliente;
 import com.smfssilva.cursomc.domain.Endereco;
@@ -27,6 +13,19 @@ import com.smfssilva.cursomc.security.UserSS;
 import com.smfssilva.cursomc.services.exceptions.AuthorizationException;
 import com.smfssilva.cursomc.services.exceptions.DataIntegretyException;
 import com.smfssilva.cursomc.services.exceptions.ObjectNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClienteService {
@@ -95,7 +94,7 @@ public class ClienteService {
 		}
 		return obj;
 	}
-
+	
 	public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
