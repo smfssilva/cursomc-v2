@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class DBService {
@@ -105,14 +106,14 @@ public class DBService {
 		p1.getCategorias().addAll(Arrays.asList(cat1, cat4));
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2, cat4));
 		p3.getCategorias().addAll(Arrays.asList(cat1, cat4));
-		p4.getCategorias().addAll(Arrays.asList(cat2));
-		p5.getCategorias().addAll(Arrays.asList(cat3));
-		p6.getCategorias().addAll(Arrays.asList(cat3));
-		p7.getCategorias().addAll(Arrays.asList(cat4));
-		p8.getCategorias().addAll(Arrays.asList(cat5));
-		p9.getCategorias().addAll(Arrays.asList(cat6));
-		p10.getCategorias().addAll(Arrays.asList(cat6));
-		p11.getCategorias().addAll(Arrays.asList(cat7));
+		p4.getCategorias().addAll(List.of(cat2));
+		p5.getCategorias().addAll(List.of(cat3));
+		p6.getCategorias().addAll(List.of(cat3));
+		p7.getCategorias().addAll(List.of(cat4));
+		p8.getCategorias().addAll(List.of(cat5));
+		p9.getCategorias().addAll(List.of(cat6));
+		p10.getCategorias().addAll(List.of(cat6));
+		p11.getCategorias().addAll(List.of(cat7));
 
 		p12.getCategorias().add(cat1);
 		p13.getCategorias().add(cat1);
@@ -172,7 +173,7 @@ public class DBService {
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
 		Cidade c3 = new Cidade(null, "Campinas", est2);
 		
-		est1.getCidades().addAll(Arrays.asList(c1));
+		est1.getCidades().addAll(List.of(c1));
 		est2.getCidades().addAll(Arrays.asList(c2, c3));
 		
 		Cliente cli1 = new Cliente(null, "Maria Silva", "smfssilva@yahoo.com", "36378912377", TipoCliente.PESSOAFISICA, pe.encode("123"));
