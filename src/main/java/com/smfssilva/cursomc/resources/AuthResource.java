@@ -1,8 +1,10 @@
 package com.smfssilva.cursomc.resources;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
+import com.smfssilva.cursomc.dto.EmailDTO;
+import com.smfssilva.cursomc.security.JWTUtil;
+import com.smfssilva.cursomc.security.UserSS;
+import com.smfssilva.cursomc.services.AuthService;
+import com.smfssilva.cursomc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smfssilva.cursomc.dto.EmailDTO;
-import com.smfssilva.cursomc.security.JWTUtil;
-import com.smfssilva.cursomc.security.UserSS;
-import com.smfssilva.cursomc.services.AuthService;
-import com.smfssilva.cursomc.services.UserService;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/auth")
@@ -31,6 +30,7 @@ public class AuthResource {
 		UserSS user = UserService.authenticated();
 		String token = jwtUtil.generateToken(user.getUsername());
 		response.addHeader("Authorization", "Bearer " + token);
+		response.addHeader("access-control-expose-headers", "Authorization");
 		return ResponseEntity.noContent().build();
 	}
 
