@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CursomcV2Application implements CommandLineRunner {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcV2Application.class, args);
 	}

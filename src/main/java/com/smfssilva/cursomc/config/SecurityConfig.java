@@ -1,7 +1,8 @@
 package com.smfssilva.cursomc.config;
 
-import java.util.Arrays;
-
+import com.smfssilva.cursomc.security.JWTAuthenticationFilter;
+import com.smfssilva.cursomc.security.JWTAuthorizationFilter;
+import com.smfssilva.cursomc.security.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.smfssilva.cursomc.security.JWTAuthenticationFilter;
-import com.smfssilva.cursomc.security.JWTAuthorizationFilter;
-import com.smfssilva.cursomc.security.JWTUtil;
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -45,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private static final String[] PUBLIC_MATCHERS_GET = {
 			
 			"/produtos/**",
-			"/categorias/**"
+			"/categorias/**",
+			"/estados/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_POST = {
